@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">My Projects</h2>
+
+<div class="row">
+    {% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm p-3">
+
+            <h5>{{ project.name }}</h5>
+
+            {% if project.description %}
+            <p class="text-muted">{{ project.description }}</p>
+            {% endif %}
+
+            <!-- Skills -->
+            <div class="mb-2">
+                {% for skill in project.skills %}
+                    <span class="badge bg-secondary">{{ skill.name }}</span>
+                {% endfor %}
+            </div>
+
+            <!-- Admin Buttons -->
+            {% if session.get('admin') %}
+                <a href="/edit-project/{{ project.id }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                <a href="/delete-project/{{ project.id }}"
+                   class="btn btn-sm btn-outline-danger"
+                   onclick="return confirm('Are you sure?')">Delete</a>
+            {% endif %}
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-sm p-4 mx-auto" style="max-width: 500px;">
+    <h3 class="mb-3 text-center">Contact Me</h3>
+
+    <form method="POST">
+
+        <label class="form-label">Name</label>
+        <input class="form-control mb-3" 
+               type="text" 
+               name="name" 
+               placeholder="Enter your name" required>
+
+        <label class="form-label">Email</label>
+        <input class="form-control mb-3" 
+               type="email" 
+               name="email" 
+               placeholder="Enter your email" required>
+
+        <label class="form-label">Message</label>
+        <textarea class="form-control mb-3" 
+                  name="message" 
+                  rows="4" 
+                  placeholder="Write your message..."></textarea>
+
+        <button class="btn btn-primary w-100">Send Message</button>
+
+    </form>
+</div>
+
+{% endblock %}

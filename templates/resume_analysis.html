@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Resume Analysis{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">AI Resume Analysis</h2>
+
+    <div class="card shadow p-4">
+
+        <pre style="white-space: pre-wrap;">
+{{ analysis }}
+        </pre>
+
+    </div>
+
+</div>
+
+{% endblock %}
