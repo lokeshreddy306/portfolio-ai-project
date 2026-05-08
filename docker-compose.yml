@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+
+  web:
+    build: .
+
+    ports:
+      - "5000:5000"
+
+    depends_on:
+      - db
+
+    volumes:
+      - .:/app
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  db:
+    image: postgres:16
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: portfoliodb
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
